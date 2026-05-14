@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.project_role</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="project.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='project']" position="inside">
+                <block title="Roles &amp; Assignments" name="section_roles_and_assignments">
+                    <setting help="Configure set of roles, available on projects.">
+                        <div class="content-group">
+                            <div class="mt8">
+                                <button
+                                    name="%(project_role_oca.company_project_roles_action)d"
+                                    string="Setup project roles"
+                                    type="action"
+                                    class="btn-link"
+                                    icon="oi-arrow-right"
+                                />
+                            </div>
+                        </div>
+                    </setting>
+                    <setting help="Check to configure projects to inherit company assignments by default.">
+                        <field name="project_inherit_assignments"/>
+                        <label for="project_inherit_assignments" string="Projects inherit Company assignments"/>
+                    </setting>
+                    <setting help="Check to configure projects to limit role to assignments by default.">
+                        <field name="project_limit_role_to_assignments"/>
+                        <label for="project_limit_role_to_assignments" string="Limit Project Role to Assignments"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
